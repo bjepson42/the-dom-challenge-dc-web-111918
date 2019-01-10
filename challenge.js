@@ -26,8 +26,6 @@ function pauseTimer(){
 
 function timerValue(){return document.querySelector('#counter').innerText;};
 
-let numberOfLikes = 0;
-
 function addLike(){
   if (document.getElementById(timerValue()) === null){ //create new list item and populate with 1 like and current timer value
     let li = document.createElement('li');
@@ -35,7 +33,7 @@ function addLike(){
     document.querySelector(".likes").appendChild(li);
     li.innerHTML = `${timerValue()} has been liked <span>1</span> times`;
   } else { //append last list item and update with n+1 likes
-    numberOfLikes = parseInt(document.getElementById(timerValue()).querySelector("span").innerText) + 1;
+    let numberOfLikes = parseInt(document.getElementById(timerValue()).querySelector("span").innerText) + 1;
     document.getElementById(timerValue()).querySelector("span").innerText = numberOfLikes;
   };
 };
