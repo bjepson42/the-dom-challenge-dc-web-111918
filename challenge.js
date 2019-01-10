@@ -34,22 +34,19 @@ function pauseTimer(){
 
 function timerValue(){return document.querySelector('#counter').innerText;};
 
-let lastTimerVal = 0;
 let numberOfLikes = 0;
 
-function addLike(){ //check last list item and update with n+1 likes and current timer value
+function addLike(){
   if (document.getElementById(timerValue()) === null){ //create new list item and populate with 1 like and current timer value
     numberOfLikes = 1;
     let li = document.createElement('li');
     li.id = timerValue();
     document.querySelector(".likes").appendChild(li);
     li.innerText = `${timerValue()} has been liked ${numberOfLikes} times`
-    lastTimerVal = timerValue();
   } else { //append last list item and update with n+1 likes
     numberOfLikes = numberOfLikes + 1;
     let li = document.getElementById(timerValue());
     li.innerText = `${timerValue()} has been liked ${numberOfLikes} times`
-    lastTimerVal = timerValue();
   };
 };
 
