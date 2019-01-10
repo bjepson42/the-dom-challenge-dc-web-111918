@@ -14,14 +14,6 @@ const incrementTimeByOne = () => (document.querySelector('#counter').innerText =
 
 const decrementTimeByOne = () => (document.querySelector('#counter').innerText = parseInt(document.querySelector('#counter').innerText) - 1);
 
-// function incrementTimeByOne(){
-//   document.querySelector('#counter').innerText = parseInt(document.querySelector('#counter').innerText) + 1;
-// };
-
-// function decrementTimeByOne(){
-//   document.querySelector('#counter').innerText = parseInt(document.querySelector('#counter').innerText) - 1;
-// };
-
 function pauseTimer(){
   console.log("timer value: " + timer);
   if (timer == true){
@@ -38,15 +30,13 @@ let numberOfLikes = 0;
 
 function addLike(){
   if (document.getElementById(timerValue()) === null){ //create new list item and populate with 1 like and current timer value
-    numberOfLikes = 1;
     let li = document.createElement('li');
     li.id = timerValue();
     document.querySelector(".likes").appendChild(li);
-    li.innerText = `${timerValue()} has been liked ${numberOfLikes} times`
+    li.innerHTML = `${timerValue()} has been liked <span>1</span> times`;
   } else { //append last list item and update with n+1 likes
-    numberOfLikes = numberOfLikes + 1;
-    let li = document.getElementById(timerValue());
-    li.innerText = `${timerValue()} has been liked ${numberOfLikes} times`
+    numberOfLikes = parseInt(document.getElementById(timerValue()).querySelector("span").innerText) + 1;
+    document.getElementById(timerValue()).querySelector("span").innerText = numberOfLikes;
   };
 };
 
